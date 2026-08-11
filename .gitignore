@@ -1,0 +1,6 @@
+# Root-level ignores for anything not covered by backend/ and frontend/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log

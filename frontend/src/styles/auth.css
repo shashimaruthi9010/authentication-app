@@ -1,0 +1,206 @@
+/* ─────────────────────────────────────────────────────────────
+   NutriSense — Auth (Login / Signup)
+   Split layout: brand panel + form panel.
+   ───────────────────────────────────────────────────────────── */
+
+.auth {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  background: var(--ns-surface);
+}
+
+/* ── Brand panel ────────────────────────────────────────────── */
+
+.auth__brand {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.75rem 3rem;
+  background: var(--ns-primary);
+  color: #EAF0EC;
+  overflow: hidden;
+}
+.auth__brand::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(640px 520px at 12% 8%, rgba(255, 255, 255, 0.07), transparent 60%),
+    radial-gradient(720px 620px at 92% 96%, rgba(111, 143, 124, 0.22), transparent 65%);
+  pointer-events: none;
+}
+.auth__brand::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 300px; height: 300px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23FFFFFF' stroke-opacity='0.05' stroke-width='1'%3E%3Ccircle cx='60' cy='60' r='58'/%3E%3Ccircle cx='60' cy='60' r='42'/%3E%3Ccircle cx='60' cy='60' r='26'/%3E%3Ccircle cx='60' cy='60' r='10'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  pointer-events: none;
+  transform: translate(90px, -90px);
+  opacity: 0.7;
+}
+
+.auth__brand-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.auth__brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.auth__brand-text { max-width: 440px; }
+.auth__brand-title {
+  color: #fff;
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  margin-bottom: 1.25rem;
+}
+.auth__brand-title em {
+  font-family: var(--ns-font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: #BFD8C7;
+}
+.auth__brand-sub {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(234, 240, 236, 0.78);
+  max-width: 400px;
+}
+
+.auth__features {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 2.25rem;
+}
+.auth__feature {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.875rem;
+  color: rgba(234, 240, 236, 0.88);
+}
+.auth__feature-icon {
+  width: 30px; height: 30px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #BFD8C7;
+}
+.auth__feature-icon svg { width: 15px; height: 15px; }
+
+.auth__brand-foot {
+  position: relative;
+  z-index: 1;
+  font-size: 0.78rem;
+  color: rgba(234, 240, 236, 0.55);
+  letter-spacing: 0.01em;
+}
+
+/* ── Form panel ─────────────────────────────────────────────── */
+
+.auth__form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background: var(--ns-canvas);
+}
+
+.auth__box {
+  width: 100%;
+  max-width: 424px;
+  animation: ns-rise 0.5s var(--ns-ease-out) both;
+}
+
+.auth__box-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2.25rem;
+}
+.auth__box-logo .logo-word {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ns-text);
+}
+
+.auth__box-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+.auth__box-sub {
+  font-size: 0.9rem;
+  color: var(--ns-text-2);
+  margin-bottom: 1.75rem;
+}
+
+.auth__card {
+  background: var(--ns-surface);
+  border: 1px solid var(--ns-line);
+  border-radius: var(--ns-radius-xl);
+  box-shadow: var(--ns-shadow);
+  padding: 1.75rem;
+}
+
+.auth__form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 0.875rem; }
+.auth__form-grid .field:nth-child(odd) { margin-right: 0.4375rem; }
+.auth__form-grid .field:nth-child(even) { margin-left: 0.4375rem; }
+
+.auth__submit { margin-top: 0.375rem; }
+
+.auth__divider {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin: 1.5rem 0 1.25rem;
+  color: var(--ns-text-3);
+  font-size: 0.8rem;
+}
+.auth__divider::before,
+.auth__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--ns-line);
+}
+
+.auth__switch {
+  text-align: center;
+  font-size: 0.845rem;
+  color: var(--ns-text-2);
+}
+.auth__switch a {
+  font-weight: 650;
+  color: var(--ns-primary-600);
+}
+.auth__switch a:hover { color: var(--ns-primary); }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .auth { grid-template-columns: 1fr; }
+  .auth__brand { display: none; }
+  .auth__form { padding: 2rem 1.25rem; min-height: 100vh; }
+}

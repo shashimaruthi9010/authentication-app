@@ -1,0 +1,80 @@
+/* ─────────────────────────────────────────────────────────────
+   NutriSense — Design Tokens
+   A calm, premium health palette rooted in deep forest green
+   with warm ivory neutrals.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* Brand — refined forest green */
+  --ns-primary:         #1C4736;
+  --ns-primary-hover:   #173D2E;
+  --ns-primary-active:  #122F24;
+  --ns-primary-600:     #2A5B46;
+  --ns-primary-500:     #3C7359;
+  --ns-primary-soft:    #E4EDE7;
+  --ns-primary-50:      #F0F5F1;
+
+  /* Sage — supporting green */
+  --ns-sage:            #6F8F7C;
+  --ns-sage-soft:       #E9EFE9;
+  --ns-sage-line:       #D3DFD6;
+
+  /* Warm neutral surfaces */
+  --ns-canvas:          #F7F6F1;
+  --ns-canvas-deep:     #EFEDE6;
+  --ns-surface:         #FFFFFF;
+  --ns-surface-muted:   #FBFAF6;
+
+  /* Ink — charcoal with a green undertone */
+  --ns-text:            #1C2420;
+  --ns-text-2:          #4E5D56;
+  --ns-text-3:          #7B8983;
+  --ns-text-4:          #A7B2AC;
+
+  /* Hairline borders */
+  --ns-line:            #E7E4DB;
+  --ns-line-strong:     #D8D4C8;
+
+  /* Accent — warm gold, used sparingly */
+  --ns-gold:            #B3853E;
+  --ns-gold-soft:       #F6EDDD;
+
+  /* Semantic states */
+  --ns-success:         #2E6B4F;
+  --ns-success-soft:    #E3EFE8;
+  --ns-warning:         #A06F28;
+  --ns-warning-soft:    #F7EEDD;
+  --ns-danger:          #B0443A;
+  --ns-danger-soft:     #F6E6E3;
+  --ns-info:            #376F8A;
+  --ns-info-soft:       #E5EEF2;
+
+  /* Elevation */
+  --ns-shadow-sm: 0 1px 2px rgba(23, 37, 30, 0.05);
+  --ns-shadow:    0 1px 2px rgba(23, 37, 30, 0.04),
+                  0 10px 30px -14px rgba(23, 37, 30, 0.14);
+  --ns-shadow-lg: 0 2px 4px rgba(23, 37, 30, 0.04),
+                  0 28px 56px -24px rgba(23, 37, 30, 0.2);
+  --ns-ring:      0 0 0 3px rgba(28, 71, 54, 0.14);
+
+  /* Radii */
+  --ns-radius-sm: 8px;
+  --ns-radius:    12px;
+  --ns-radius-lg: 16px;
+  --ns-radius-xl: 22px;
+
+  /* Typography */
+  --ns-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --ns-font-serif: 'Instrument Serif', 'Georgia', 'Times New Roman', serif;
+
+  /* Motion */
+  --ns-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ns-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ns-fast: 140ms;
+  --ns-med: 220ms;
+
+  /* Layout */
+  --ns-sidebar-w: 248px;
+  --ns-content-max: 1160px;
+}

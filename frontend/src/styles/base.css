@@ -1,0 +1,105 @@
+/* ─────────────────────────────────────────────────────────────
+   NutriSense — Base
+   Reset, typography scale, scrollbars, shared primitives.
+   ───────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: var(--ns-canvas);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--ns-font-sans);
+  background: var(--ns-canvas);
+  color: var(--ns-text);
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root { min-height: 100vh; }
+
+h1, h2, h3, h4 {
+  color: var(--ns-text);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+a {
+  color: var(--ns-primary-600);
+  text-decoration: none;
+}
+
+a:hover { color: var(--ns-primary); }
+
+img { max-width: 100%; display: block; }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+::selection {
+  background: rgba(28, 71, 54, 0.18);
+}
+
+/* Focus visibility — consistent, accessible rings */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--ns-ring);
+  border-radius: 6px;
+}
+
+/* Scrollbar — quiet, in keeping with the aesthetic */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ns-line-strong) transparent;
+}
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb {
+  background: var(--ns-line-strong);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Reusable primitives ─────────────────────────────────────── */
+
+.hide-sm { }
+.hide-desktop { display: none !important; }
+@media (max-width: 720px) {
+  .hide-sm { display: none !important; }
+  .hide-desktop { display: inline-flex !important; }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}

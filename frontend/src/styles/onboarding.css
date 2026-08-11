@@ -1,0 +1,241 @@
+/* ─────────────────────────────────────────────────────────────
+   NutriSense — Onboarding
+   Focused single-page health profile flow.
+   ───────────────────────────────────────────────────────────── */
+
+.onboarding {
+  min-height: 100vh;
+  background: var(--ns-canvas);
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1.5rem 4.5rem;
+}
+
+.onboarding__shell {
+  width: 100%;
+  max-width: 680px;
+  animation: ns-rise 0.5s var(--ns-ease-out) both;
+}
+
+.onboarding__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.75rem;
+}
+
+.onboarding__head { margin-bottom: 1.75rem; }
+.onboarding__eyebrow { margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
+.onboarding__title {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.55rem;
+}
+.onboarding__sub {
+  font-size: 0.925rem;
+  color: var(--ns-text-2);
+  max-width: 480px;
+}
+
+/* Live completeness meter */
+.onboarding__meter {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.onboarding__meter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--ns-text-3);
+  font-weight: 550;
+}
+.onboarding__meter-row strong { color: var(--ns-primary-600); font-weight: 650; }
+
+.onboarding__card {
+  background: var(--ns-surface);
+  border: 1px solid var(--ns-line);
+  border-radius: var(--ns-radius-xl);
+  box-shadow: var(--ns-shadow);
+  padding: 1.75rem 2rem 2rem;
+}
+
+.onboarding__section { padding: 1.5rem 0; border-top: 1px solid var(--ns-line); }
+.onboarding__section:first-of-type { padding-top: 0.5rem; border-top: none; }
+.onboarding__section-title {
+  font-size: 0.82rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  color: var(--ns-text);
+  margin-bottom: 0.2rem;
+}
+.onboarding__section-note {
+  font-size: 0.8rem;
+  color: var(--ns-text-3);
+  margin-bottom: 1.25rem;
+}
+.onboarding__grid { display: grid; gap: 1.125rem 1rem; }
+.onboarding__grid--2 { grid-template-columns: 1fr 1fr; }
+
+.onboarding__footer {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ns-line);
+  margin-top: 0.5rem;
+  display: grid;
+  gap: 0.875rem;
+}
+.onboarding__disclaimer {
+  font-size: 0.76rem;
+  line-height: 1.55;
+  color: var(--ns-text-3);
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .onboarding { padding: 1.75rem 1rem 3rem; }
+  .onboarding__card { padding: 1.25rem 1.25rem 1.5rem; border-radius: var(--ns-radius-lg); }
+  .onboarding__grid--2 { grid-template-columns: 1fr; }
+  .onboarding__top { margin-bottom: 2rem; }
+}
+
+/* ── Premium step wizard additions ──────────────────────────── */
+
+.onboarding__privacy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ns-text-3);
+  white-space: nowrap;
+}
+.onboarding__privacy svg { width: 14px; height: 14px; }
+
+.onboarding__eyebrow-mark {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ns-primary-600);
+  display: inline-block;
+}
+
+.stepper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--ns-surface);
+  border: 1px solid var(--ns-line);
+  border-radius: var(--ns-radius);
+  box-shadow: var(--ns-shadow-sm);
+}
+.stepper__step {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+.stepper__dot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ns-line-strong);
+  background: var(--ns-surface);
+  color: var(--ns-text-3);
+  font-size: 0.76rem;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: all var(--ns-med) var(--ns-ease);
+}
+.stepper__dot svg { width: 13px; height: 13px; }
+.stepper__meta { min-width: 0; display: flex; flex-direction: column; }
+.stepper__label {
+  font-size: 0.82rem;
+  font-weight: 650;
+  color: var(--ns-text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.stepper__sub {
+  font-size: 0.7rem;
+  color: var(--ns-text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.stepper__step--active .stepper__dot {
+  background: var(--ns-primary);
+  border-color: var(--ns-primary);
+  color: #fff;
+  box-shadow: 0 0 0 4px rgba(28, 71, 54, 0.12);
+}
+.stepper__step--active .stepper__label { color: var(--ns-text); }
+.stepper__step--done .stepper__dot {
+  background: var(--ns-primary-soft);
+  border-color: rgba(28, 71, 54, 0.4);
+  color: var(--ns-primary-600);
+}
+
+.onboarding__meter-track {
+  height: 6px;
+  background: var(--ns-canvas-deep);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.onboarding__meter-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ns-primary-600), var(--ns-sage));
+  transition: width 0.5s var(--ns-ease-out);
+}
+
+.onboarding__panel .onboarding__section:first-child { padding-top: 0.5rem; }
+.onboarding__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.onboarding__chips-none {
+  width: 100%;
+  font-size: 0.8rem;
+  color: var(--ns-text-3);
+  padding-top: 0.25rem;
+}
+
+.onboarding__review {
+  margin-top: 0.5rem;
+  padding: 1.25rem 1.375rem;
+  background: var(--ns-primary-50);
+  border: 1px solid var(--ns-sage-line);
+  border-radius: var(--ns-radius);
+}
+.onboarding__review-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.86rem;
+  font-weight: 650;
+  color: var(--ns-primary);
+  margin-bottom: 0.9rem;
+}
+.onboarding__review-head svg { width: 16px; height: 16px; }
+.onboarding__review-grid { display: grid; gap: 0.55rem; }
+.onboarding__review-grid .kv__v { color: var(--ns-primary-600); }
+
+.onboarding__footer-actions {
+  display: flex;
+  gap: 0.625rem;
+}
+.onboarding__footer-actions .btn--block { flex: 1; }
+
+@media (max-width: 640px) {
+  .stepper { grid-template-columns: 1fr; gap: 0.875rem; }
+  .stepper__step:nth-child(n+2) { display: none; }
+  .card-select--2, .card-select--3 { grid-template-columns: 1fr; }
+}
